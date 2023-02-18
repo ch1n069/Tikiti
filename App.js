@@ -6,15 +6,34 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomScreen from "./screens/HomScreen";
 import MovieScreen from "./screens/MovieScreen";
+import { MovieContext } from "./context";
+import TheartreScreen from "./screens/TheartreScreen";
 // import { Stack } from "react-bootstrap";
 const Stack = createStackNavigator();
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="home" component={HomScreen}></Stack.Screen>
-        <Stack.Screen name="movies" component={MovieScreen}></Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <MovieContext>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="home"
+              component={HomScreen}
+              options={{ headerShown: false }}
+            ></Stack.Screen>
+            <Stack.Screen
+              name="movies"
+              component={MovieScreen}
+              options={{ headerShown: false }}
+            ></Stack.Screen>
+            <Stack.Screen
+              name="theatre"
+              component={TheartreScreen}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </MovieContext>
+    </>
   );
 }

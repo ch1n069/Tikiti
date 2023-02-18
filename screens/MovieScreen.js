@@ -98,6 +98,7 @@ const MovieScreen = () => {
           <Text style={{ fontSize: 16, fontWeight: "500" }}>{item.name}</Text>
           {mall.includes(item.name) ? (
             <FlatList
+              numColumns={3}
               data={item.showtimes}
               renderItem={({ item }) => (
                 <Pressable
@@ -109,9 +110,17 @@ const MovieScreen = () => {
                     margin: 4,
                     borderRadius: 3,
                   }}
+                  onPress={() => {
+                    navigation.navigate("theatre");
+                  }}
                 >
                   <Text
-                    style={{ fontSize: 12, fontWeight: "500", color: "green" }}
+                    style={{
+                      fontSize: 12,
+                      fontWeight: "500",
+                      color: "green",
+                      textAlign: "center",
+                    }}
                   >
                     {item}
                   </Text>
