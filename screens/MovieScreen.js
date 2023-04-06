@@ -111,7 +111,11 @@ const MovieScreen = () => {
                     borderRadius: 3,
                   }}
                   onPress={() => {
-                    navigation.navigate("theatre");
+                    navigation.navigate("theatre", {
+                      name: route.params.name,
+                      mall: mall,
+                      timeSelected: item,
+                    });
                   }}
                 >
                   <Text
